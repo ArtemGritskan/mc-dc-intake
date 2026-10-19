@@ -1,0 +1,210 @@
+window.MCDCI_CONFIG = {
+  "schema": [
+    {
+      "id": "project",
+      "title": "О проекте",
+      "fields": [
+        {
+          "id": "format",
+          "label": "Формат объекта",
+          "options": [
+            "Новое строительство",
+            "Расширение ЦОДа"
+          ]
+        },
+        {
+          "id": "stage",
+          "label": "Стадия проекта",
+          "options": [
+            "Предварительная оценка затрат",
+            "Подбор площадки",
+            "Площадка определена",
+            "Проектирование",
+            "Строительство"
+          ]
+        },
+        {
+          "id": "power_total",
+          "label": "Общая потребляемая мощность объекта, МВт",
+          "type": "number",
+          "maxLength": 13,
+          "integerDigits": 9,
+          "decimalDigits": 3
+        },
+        {
+          "id": "mode",
+          "label": "Вариант электроснабжения",
+          "options": [
+            "Электросеть",
+            "Газовая генерация",
+            "Смешанный вариант",
+            "Пока не определились — нужна помощь с выбором"
+          ],
+          "unknown": false
+        },
+        {
+          "id": "launch",
+          "label": "Желаемый срок запуска",
+          "type": "text",
+          "maxLength": 100
+        }
+      ]
+    },
+    {
+      "id": "site",
+      "title": "Площадка и электроснабжение",
+      "fields": [
+        {
+          "id": "location",
+          "label": "Регион, адрес или координаты",
+          "type": "text",
+          "maxLength": 300
+        },
+        {
+          "id": "area",
+          "label": "Доступная для строительства площадь, м²",
+          "type": "number",
+          "maxLength": 13,
+          "integerDigits": 9,
+          "decimalDigits": 3
+        },
+        {
+          "id": "land_rights",
+          "label": "Права на участок",
+          "options": [
+            "Собственность",
+            "Аренда",
+            "Оформляются",
+            "Площадка ещё не выбрана"
+          ]
+        },
+        {
+          "id": "cadastre",
+          "label": "Кадастровый номер",
+          "type": "text",
+          "maxLength": 50
+        },
+        {
+          "id": "land_use",
+          "label": "Назначение земли и разрешённое использование",
+          "type": "textarea",
+          "maxLength": 1000
+        },
+        {
+          "id": "connection",
+          "label": "Наличие подключения",
+          "options": [
+            "Есть действующее подключение или ТУ",
+            "Есть предполагаемая точка подключения"
+          ]
+        },
+        {
+          "id": "reliability",
+          "label": "Требуемая категория надежности электроснабжения",
+          "options": [
+            "Вторая категория",
+            "Вторая категория + ДГУ",
+            "Третья категория + ДГУ"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "title": "Параметры ЦОДа",
+      "fields": [
+        {
+          "id": "it_power",
+          "label": "Мощность IT-оборудования, МВт",
+          "type": "number",
+          "maxLength": 13,
+          "integerDigits": 9,
+          "decimalDigits": 3
+        },
+        {
+          "id": "racks",
+          "label": "Количество стоек",
+          "type": "number",
+          "step": "1",
+          "maxLength": 9,
+          "integerDigits": 9,
+          "decimalDigits": 0
+        },
+        {
+          "id": "rack_power",
+          "label": "Планируемая мощность на стойку, кВт",
+          "type": "number",
+          "maxLength": 13,
+          "integerDigits": 9,
+          "decimalDigits": 3
+        },
+        {
+          "id": "cooling",
+          "label": "Предполагаемая система охлаждения",
+          "options": [
+            "Воздушная",
+            "Жидкостная",
+            "Комбинированная",
+            "Нужна рекомендация"
+          ]
+        },
+        {
+          "id": "building",
+          "label": "Исполнение ЦОДа",
+          "options": [
+            "Капитальное здание",
+            "Модульное исполнение",
+            "Нужна рекомендация"
+          ]
+        },
+        {
+          "id": "comments",
+          "label": "Дополнительные сведения и вопросы",
+          "type": "textarea",
+          "maxLength": 2000
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "Контакты",
+      "fields": [
+        {
+          "id": "company",
+          "label": "Компания",
+          "type": "text",
+          "unknown": false,
+          "maxLength": 200
+        },
+        {
+          "id": "name",
+          "label": "Контактное лицо",
+          "type": "text",
+          "unknown": false,
+          "maxLength": 100
+        },
+        {
+          "id": "role",
+          "label": "Роль в проекте",
+          "type": "text",
+          "unknown": false,
+          "maxLength": 100
+        },
+        {
+          "id": "phone",
+          "label": "Телефон",
+          "type": "tel",
+          "unknown": false,
+          "maxLength": 30
+        },
+        {
+          "id": "email",
+          "label": "Email для связи",
+          "type": "email",
+          "unknown": false,
+          "maxLength": 254
+        }
+      ]
+    }
+  ]
+};
