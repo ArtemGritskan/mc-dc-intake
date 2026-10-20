@@ -8,3 +8,4 @@
 
 .mcdi-grid{margin-top:22px}
 
+.mcdi-language{display:flex;gap:4px;flex-shrink:0;padding:4px;background:#f1f5f9;border-radius:10px}.mcdi-language button{border:0;background:transparent;color:#475569;min-width:44px;padding:8px 10px;font-size:13px}.mcdi-language button[aria-pressed="true"]{background:#007aff;color:#fff}.mcdi-heading{flex-wrap:wrap}.mcdi-heading>div:first-child{flex:1;min-width:0}.mcdi-language{align-self:flex-start}@media(max-width:600px){.mcdi-language{display:inline-flex;margin-top:12px;margin-left:8px}}

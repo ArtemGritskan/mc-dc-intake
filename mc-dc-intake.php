@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mining Cluster — Исходные данные ЦОДа
  * Description: Адаптивная анкета проекта ЦОДа. Шорткод [mc_dc_intake].
- * Version: 1.1.5
+ * Version: 1.1.6
  * Author: Артём
  * Requires at least: 6.0
  * Requires PHP: 7.4

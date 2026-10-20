@@ -10,6 +10,11 @@ window.MCDCI_CONFIG = {
           "options": [
             "Новое строительство",
             "Расширение ЦОДа"
+          ],
+          "labelEn": "Project type",
+          "optionsEn": [
+            "New construction",
+            "Expansion of an existing data center"
           ]
         },
         {
@@ -21,6 +26,14 @@ window.MCDCI_CONFIG = {
             "Площадка определена",
             "Проектирование",
             "Строительство"
+          ],
+          "labelEn": "Project stage",
+          "optionsEn": [
+            "Preliminary cost assessment",
+            "Site selection",
+            "Site selected",
+            "Design",
+            "Construction"
           ]
         },
         {
@@ -29,7 +42,8 @@ window.MCDCI_CONFIG = {
           "type": "number",
           "maxLength": 13,
           "integerDigits": 9,
-          "decimalDigits": 3
+          "decimalDigits": 3,
+          "labelEn": "Total facility power demand, MW"
         },
         {
           "id": "mode",
@@ -40,15 +54,24 @@ window.MCDCI_CONFIG = {
             "Смешанный вариант",
             "Пока не определились — нужна помощь с выбором"
           ],
-          "unknown": false
+          "unknown": false,
+          "labelEn": "Power supply arrangement",
+          "optionsEn": [
+            "Utility grid",
+            "Gas-fired generation",
+            "Utility grid and gas-fired generation",
+            "Undecided — advice needed"
+          ]
         },
         {
           "id": "launch",
           "label": "Желаемый срок запуска",
           "type": "text",
-          "maxLength": 100
+          "maxLength": 100,
+          "labelEn": "Target commissioning date"
         }
-      ]
+      ],
+      "titleEn": "Project overview"
     },
     {
       "id": "site",
@@ -58,7 +81,8 @@ window.MCDCI_CONFIG = {
           "id": "location",
           "label": "Регион, адрес или координаты",
           "type": "text",
-          "maxLength": 300
+          "maxLength": 300,
+          "labelEn": "Region, address or coordinates"
         },
         {
           "id": "area",
@@ -66,7 +90,8 @@ window.MCDCI_CONFIG = {
           "type": "number",
           "maxLength": 13,
           "integerDigits": 9,
-          "decimalDigits": 3
+          "decimalDigits": 3,
+          "labelEn": "Land area available for construction, m²"
         },
         {
           "id": "land_rights",
@@ -76,19 +101,28 @@ window.MCDCI_CONFIG = {
             "Аренда",
             "Оформляются",
             "Площадка ещё не выбрана"
+          ],
+          "labelEn": "Land tenure",
+          "optionsEn": [
+            "Owned",
+            "Leased",
+            "Land rights being formalized",
+            "Site not yet selected"
           ]
         },
         {
           "id": "cadastre",
           "label": "Кадастровый номер",
           "type": "text",
-          "maxLength": 50
+          "maxLength": 50,
+          "labelEn": "Cadastral number"
         },
         {
           "id": "land_use",
           "label": "Назначение земли и разрешённое использование",
           "type": "textarea",
-          "maxLength": 1000
+          "maxLength": 1000,
+          "labelEn": "Land category and permitted use"
         },
         {
           "id": "connection",
@@ -96,6 +130,11 @@ window.MCDCI_CONFIG = {
           "options": [
             "Есть действующее подключение или ТУ",
             "Есть предполагаемая точка подключения"
+          ],
+          "labelEn": "Grid connection status",
+          "optionsEn": [
+            "Existing connection or issued technical connection conditions",
+            "Proposed connection point identified"
           ]
         },
         {
@@ -105,9 +144,16 @@ window.MCDCI_CONFIG = {
             "Вторая категория",
             "Вторая категория + ДГУ",
             "Третья категория + ДГУ"
+          ],
+          "labelEn": "Required power supply reliability category (Russian classification)",
+          "optionsEn": [
+            "Category II",
+            "Category II + diesel generator backup",
+            "Category III + diesel generator backup"
           ]
         }
-      ]
+      ],
+      "titleEn": "Site and power supply"
     },
     {
       "id": "equipment",
@@ -119,7 +165,8 @@ window.MCDCI_CONFIG = {
           "type": "number",
           "maxLength": 13,
           "integerDigits": 9,
-          "decimalDigits": 3
+          "decimalDigits": 3,
+          "labelEn": "IT equipment power demand, MW"
         },
         {
           "id": "racks",
@@ -128,7 +175,8 @@ window.MCDCI_CONFIG = {
           "step": "1",
           "maxLength": 9,
           "integerDigits": 9,
-          "decimalDigits": 0
+          "decimalDigits": 0,
+          "labelEn": "Number of racks"
         },
         {
           "id": "rack_power",
@@ -136,7 +184,8 @@ window.MCDCI_CONFIG = {
           "type": "number",
           "maxLength": 13,
           "integerDigits": 9,
-          "decimalDigits": 3
+          "decimalDigits": 3,
+          "labelEn": "Planned power per rack, kW"
         },
         {
           "id": "cooling",
@@ -146,6 +195,13 @@ window.MCDCI_CONFIG = {
             "Жидкостная",
             "Комбинированная",
             "Нужна рекомендация"
+          ],
+          "labelEn": "Proposed cooling system",
+          "optionsEn": [
+            "Air cooling",
+            "Liquid cooling",
+            "Combined air and liquid cooling",
+            "Recommendation needed"
           ]
         },
         {
@@ -155,15 +211,23 @@ window.MCDCI_CONFIG = {
             "Капитальное здание",
             "Модульное исполнение",
             "Нужна рекомендация"
+          ],
+          "labelEn": "Data center construction type",
+          "optionsEn": [
+            "Permanent building",
+            "Modular construction",
+            "Recommendation needed"
           ]
         },
         {
           "id": "comments",
           "label": "Дополнительные сведения и вопросы",
           "type": "textarea",
-          "maxLength": 2000
+          "maxLength": 2000,
+          "labelEn": "Additional information and questions"
         }
-      ]
+      ],
+      "titleEn": "Data center specifications"
     },
     {
       "id": "contact",
@@ -174,37 +238,43 @@ window.MCDCI_CONFIG = {
           "label": "Компания",
           "type": "text",
           "unknown": false,
-          "maxLength": 200
+          "maxLength": 200,
+          "labelEn": "Company"
         },
         {
           "id": "name",
           "label": "Контактное лицо",
           "type": "text",
           "unknown": false,
-          "maxLength": 100
+          "maxLength": 100,
+          "labelEn": "Contact name"
         },
         {
           "id": "role",
           "label": "Роль в проекте",
           "type": "text",
           "unknown": false,
-          "maxLength": 100
+          "maxLength": 100,
+          "labelEn": "Role in the project"
         },
         {
           "id": "phone",
           "label": "Телефон",
           "type": "tel",
           "unknown": false,
-          "maxLength": 30
+          "maxLength": 30,
+          "labelEn": "Phone number"
         },
         {
           "id": "email",
           "label": "Email для связи",
           "type": "email",
           "unknown": false,
-          "maxLength": 254
+          "maxLength": 254,
+          "labelEn": "Contact email"
         }
-      ]
+      ],
+      "titleEn": "Contact details"
     }
   ]
 };
