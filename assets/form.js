@@ -24,7 +24,7 @@
    if(lang==='en'&&raw&&f.options)return f.optionsEn[f.options.indexOf(raw)];
    return lang==='en'&&f.type==='number'?raw.replace(',','.'):raw;
   };
-  const answers=()=>schema.map(s=>({title:title(s),id:s.id,rows:s.fields.map(f=>[label(f),value(f)||t('empty')])}));
+  const answers=(forPdf=false)=>schema.map(s=>({title:forPdf?s.title:title(s),id:s.id,rows:s.fields.map(f=>[forPdf?f.label:label(f),value(f)||t('empty')])}));
   function render(focus=false){
    root.lang=lang;controls.setAttribute('aria-label',t('language'));
    controls.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
@@ -58,7 +58,7 @@
   async function download(){
    if(busy)return;for(let i=0;i<schema.length;i++)if(!valid(i))return;
    busy=true;const button=root.querySelector('[data-next]');button.disabled=true;button.textContent=t('preparing');controls.querySelectorAll('button').forEach(b=>b.disabled=true);
-   try{const bytes=await window.MCDCI_PDF(answers(),lang);const url=URL.createObjectURL(new Blob([bytes],{type:'application/pdf'}));const a=document.createElement('a');a.href=url;a.download=t('filename');document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);}
+   try{const bytes=await window.MCDCI_PDF(answers(true),lang);const url=URL.createObjectURL(new Blob([bytes],{type:'application/pdf'}));const a=document.createElement('a');a.href=url;a.download=t('filename');document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);}
    catch(e){const err=root.querySelector('.mcdi-error');err.textContent=t('pdfError');err.hidden=false;}
    finally{busy=false;button.disabled=false;button.textContent=t('download');controls.querySelectorAll('button').forEach(b=>b.disabled=false);}
   }

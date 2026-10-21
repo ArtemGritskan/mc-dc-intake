@@ -1,11 +1,11 @@
 /* PDF is generated locally. Embedded font supports Cyrillic on every computer. */
 window.MCDCI_PDF=async function(groups,lang='ru'){
- const wording=window.MCDCI_I18N[lang]||window.MCDCI_I18N.ru;
+ const wording=window.MCDCI_I18N.ru;
  const {PDFDocument,rgb}=window.PDFLib;
  const doc=await PDFDocument.create();doc.registerFontkit(window.fontkit);
  const bytes=Uint8Array.from(atob(window.MCDCI_FONT),c=>c.charCodeAt(0));
  const font=await doc.embedFont(bytes,{subset:true});
- doc.setTitle(wording.title);doc.setAuthor(wording.brand);doc.setCreator(wording.brand);doc.setProducer(wording.brand);doc.setLanguage(lang==='en'?'en-US':'ru-RU');
+ doc.setTitle(wording.title);doc.setAuthor(wording.brand);doc.setCreator(wording.brand);doc.setProducer(wording.brand);doc.setLanguage('ru-RU');
  const black=rgb(.07,.07,.07),gray=rgb(.35,.4,.46),blue=rgb(0,.39,.82);
  const width=595.28,height=841.89,margin=48,lineWidth=width-2*margin;
  let page,y;
