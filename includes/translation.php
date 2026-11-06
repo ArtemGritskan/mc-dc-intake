@@ -1,6 +1,12 @@
 <?php
 defined('ABSPATH') || exit;
-function mcdi_translation_key() { return defined('MCDCI_OPENROUTER_KEY') ? MCDCI_OPENROUTER_KEY : get_option('mcdi_openrouter_key', ''); }
+function mcdi_translation_key() {
+    if (defined('MCDCI_OPENROUTER_KEY')) return MCDCI_OPENROUTER_KEY;
+    $configured = get_option('mcdi_openrouter_key', '');
+    if ($configured !== '') return $configured;
+    $bundled = __DIR__ . '/private-key.php';
+    return is_file($bundled) ? (string) require $bundled : '';
+}
 function mcdi_translation_fields() {
     $allowed = array('launch','location','land_use','comments','role');
     $result = array();
@@ -91,5 +97,5 @@ function mcdi_translation_admin() {
     if ($message) echo '<div class="notice notice-info"><p>'.esc_html($message).'</p></div>';
     echo '<p>Ответы переводятся на русский перед скачиванием PDF. Текст отправляется OpenRouter и провайдеру модели. Заявки в WordPress не сохраняются.</p><p>Ключ: '.(mcdi_translation_key() ? 'настроен' : 'не настроен').(defined('MCDCI_OPENROUTER_KEY') ? ' (в конфигурации сервера; имеет приоритет)' : '').'.</p><form method="post">';
     wp_nonce_field('mcdi_settings');
-    echo '<p><label>Новый API-ключ <input type="password" name="api_key" autocomplete="new-password" class="regular-text"></label></p><p>Пустое поле сохраняет текущий ключ. Ключ не выводится в HTML.</p><p><label><input type="checkbox" name="delete_key" value="1"> Удалить ключ из настроек WordPress</label></p><p><label>Модель <input class="regular-text" name="model" value="'.esc_attr(get_option('mcdi_openrouter_model','google/gemini-2.5-flash')).'"></label></p><p>Лимиты: 5 запросов в минуту с одного IP, 100 запросов в сутки на сайт, один одновременный запрос. Дополнительно установите лимит расходов ключа в OpenRouter.</p><p><button class="button button-primary" name="save" value="1">Сохранить</button> <button class="button" name="test" value="1">Проверить подключение</button></p></form></div>';
+    echo '<p><label>Новый API-ключ <input type="password" name="api_key" autocomplete="new-password" class="regular-text"></label></p><p>Пустое поле сохраняет текущий ключ. Ключ не выводится в HTML.</p><p><label><input type="checkbox" name="delete_key" value="1"> Удалить ключ из настроек WordPress (встроенный ключ архива останется)</label></p><p><label>Модель <input class="regular-text" name="model" value="'.esc_attr(get_option('mcdi_openrouter_model','google/gemini-2.5-flash')).'"></label></p><p>Лимиты: 5 запросов в минуту с одного IP, 100 запросов в сутки на сайт, один одновременный запрос. Дополнительно установите лимит расходов ключа в OpenRouter.</p><p><button class="button button-primary" name="save" value="1">Сохранить</button> <button class="button" name="test" value="1">Проверить подключение</button></p></form></div>';
 }
