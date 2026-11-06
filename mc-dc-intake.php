@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mining Cluster — Исходные данные ЦОДа
  * Description: Адаптивная анкета проекта ЦОДа. Шорткод [mc_dc_intake].
- * Version: 1.1.7
+ * Version: 1.1.8
  * Author: Артём
  * Requires at least: 6.0
  * Requires PHP: 7.4
@@ -12,6 +12,7 @@ defined('ABSPATH') || exit;
 define('MCDCI_DIR', plugin_dir_path(__FILE__));
 define('MCDCI_URL', plugin_dir_url(__FILE__));
 require_once MCDCI_DIR . 'includes/shortcode.php';
+require_once MCDCI_DIR . 'includes/translation.php';
 function mcdi_schema() {
     return json_decode(file_get_contents(MCDCI_DIR . 'config/fields.json'), true);
 }
